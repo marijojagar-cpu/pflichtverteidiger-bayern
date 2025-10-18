@@ -19,7 +19,7 @@ img{max-width:100%;display:block}
 
 /* Header: Brand links, nur "Kontakt" rechts – immer sichtbar */
 .site-header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:20}
-.header-bar{display:flex;align-items:center;justify-content:center;padding:12px 0}
+.header-bar{display:flex;align-items:center;justify-content:left;padding:12px 0}
 .brand{text-decoration:none;color:inherit;font-weight:700;font-size:1.2rem;letter-spacing:.01em}
 .nav{list-style:none;display:flex;gap:12px;margin:0;padding:0}
 .nav a{color:var(--fg);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
