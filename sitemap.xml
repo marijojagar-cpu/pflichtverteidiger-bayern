@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://pflichtverteidiger.bayern/</loc></url>
-<url><loc>https://pflichtverteidiger.bayern/pages/faq.html</loc></url>
-<url><loc>https://pflichtverteidiger.bayern/pages/impressum.html</loc></url>
-<url><loc>https://pflichtverteidiger.bayern/pages/datenschutz.html</loc></url>
-<url><loc>https://pflichtverteidiger.bayern/standorte/muenchen.html</loc></url>
-<url><loc>https://pflichtverteidiger.bayern/standorte/nuernberg.html</loc></url>
-<url><loc>https://pflichtverteidiger.bayern/standorte/augsburg.html</loc></url>
+  <url><loc>https://pflichtverteidiger.bayern/</loc></url>
+  <url><loc>https://pflichtverteidiger.bayern/pages/faq.html</loc></url>
+  <url><loc>https://pflichtverteidiger.bayern/pages/impressum.html</loc></url>
+  <url><loc>https://pflichtverteidiger.bayern/pages/datenschutz.html</loc></url>
 </urlset>
