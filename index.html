@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pflichtverteidiger in Bayern – Soforthilfe & Beiordnung (§§ 140–142 StPO)</title>
-  <meta name="description" content="Pflichtverteidigung in Bayern: Zügige Beiordnung, Akteneinsicht, klare Verteidigungsstrategie. Soforthilfe per Telefon, E‑Mail oder Formular." />
+  <meta name="description" content="Pflichtverteidigung in Bayern: Zügige Beiordnung, Akteneinsicht, klare Verteidigungsstrategie. Soforthilfe per Telefon, E‑Mail oder WhatsApp." />
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
   <meta property="og:title" content="Pflichtverteidiger in Bayern – Soforthilfe" />
@@ -73,7 +73,7 @@
       <div class="container">
         <h2>So läuft es ab</h2>
         <ol class="steps">
-          <li><strong>Kontakt</strong> (Telefon/E‑Mail/Formular)</li>
+          <li><strong>Kontakt</strong> (Telefon/E‑Mail/WhatsApp)</li>
           <li><strong>Akteneinsicht</strong> beantragen, Risikoanalyse</li>
           <li><strong>Beiordnung</strong> als Pflichtverteidiger veranlassen</li>
           <li><strong>Strategie</strong> zur Einstellung/Freispruch/Milderung</li>
@@ -104,23 +104,13 @@
     <section id="kontakt" class="section contact">
       <div class="container">
         <h2>Kontakt & Soforthilfe</h2>
-        <p>Wir melden uns zeitnah. Bitte keine sensiblen Daten per WhatsApp senden.</p>
-        <form class="form" method="post" action="#" novalidate>
-          <label>Ihr Name
-            <input name="name" autocomplete="name" required />
-          </label>
-          <label>E‑Mail
-            <input type="email" name="email" autocomplete="email" required />
-          </label>
-          <label>Nachricht
-            <textarea name="message" rows="5" placeholder="Kurz: Vorwurf, Fristen, ggf. Aktenzeichen" required></textarea>
-          </label>
-          <label class="consent">
-            <input type="checkbox" name="consent" required />
-            Ich stimme der Verarbeitung meiner Angaben gemäß <a href="/pages/datenschutz.html">Datenschutzerklärung</a> zu.
-          </label>
-          <button class="btn primary" type="submit">Anfrage senden</button>
-        </form>
+        <p>Sie erreichen uns direkt – ohne Umwege:</p>
+        <div class="contact-buttons">
+          <a class="btn primary" href="tel:+491748559976" aria-label="Jetzt anrufen: +49 174 8559976">Anrufen: +49&nbsp;174&nbsp;8559976</a>
+          <a class="btn ghost" href="mailto:email@pflichtverteidiger.bayern" aria-label="E-Mail schreiben an email@pflichtverteidiger.bayern">E‑Mail schreiben</a>
+          <a class="btn whatsapp" href="https://wa.me/491748559976?text=Hallo%2C%20ich%20ben%C3%B6tige%20Soforthilfe%20in%20einer%20Strafsache." target="_blank" rel="noopener" aria-label="WhatsApp Chat starten">WhatsApp</a>
+        </div>
+        <p style="margin-top:18px;color:var(--muted);font-size:.98rem;">Hinweis: Bitte keine sensiblen Daten per WhatsApp senden.</p>
       </div>
     </section>
   </main>
@@ -136,9 +126,23 @@
     </div>
   </footer>
 
-  <!-- Strukturierte Daten -->
-  <script type="application/ld+json">
-  {
+  <!-- Sticky Footer-Leiste (mobil) -->
+  <nav class="sticky-cta" aria-label="Schnellzugriff Kontakt">
+    <a class="cta-item call" href="tel:+491748559976" aria-label="Jetzt anrufen: +49 174 8559976">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92V21a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a2 2 0 0 1 2 1.72c.13 1.13.37 2.23.72 3.28a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c1.05.35 2.15.59 3.28.72A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Anrufen</span>
+    </a>
+    <a class="cta-item email" href="mailto:email@pflichtverteidiger.bayern" aria-label="E-Mail schreiben an email@pflichtverteidiger.bayern">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="5" rx="2"/><polyline points="2 7 12 13 22 7"/></svg>
+      <span>E‑Mail</span>
+    </a>
+    <a class="cta-item whatsapp" href="https://wa.me/491748559976?text=Hallo%2C%20ich%20ben%C3%B6tige%20Soforthilfe%20in%20einer%20Strafsache." target="_blank" rel="noopener" aria-label="WhatsApp Chat starten">
+      <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 3.9A10 10 0 0 0 4.1 19.8L3 23l3.3-1.1A10 10 0 1 0 20 3.9Zm-8 17.3a8.3 8.3 0 0 1-4.2-1.2l-.3-.2-2 .7.7-1.9-.2-.3A8.3 8.3 0 1 1 12 21.2Zm4.7-6.2c-.2-.1-1.3-.6-1.4-.7s-.3-.1-.4.1c-.1.2-.6.7-.7.9s-.3.1-.5 0c-.2-.1-.9-.3-1.7-1-.6-.5-1-1.1-1.1-1.3s0-.3.1-.4l.3-.4c.1-.1.1-.3 0-.4 0-.1-.4-1-.6-1.4-.2-.5-.4-.4-.6-.4h-.5c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 3.8 3.5 1.5.6 2 .7 2.7.6.5-.1 1.3-.5 1.5-1s.3-1 .2-1.1c0-.1-.1-.1-.3-.2Z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+  </nav>
+
+  <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"LegalService",
     "name":"Pflichtverteidiger Bayern",
@@ -147,11 +151,9 @@
     "serviceType":["Pflichtverteidigung","Strafverteidigung"],
     "address":{"@type":"PostalAddress","addressRegion":"BY","addressCountry":"DE"},
     "knowsAbout":["§140 StPO","§141 StPO","§142 StPO"]
-  }
-  </script>
+  }</script>
 
-  <script type="application/ld+json">
-  {
+  <script type="application/ld+json">{
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
@@ -159,8 +161,7 @@
       {"@type":"Question","name":"Wann wird der Pflichtverteidiger bestellt?","acceptedAnswer":{"@type":"Answer","text":"Unverzüglich; über einen Antrag spätestens vor einer Vernehmung. In bestimmten Fällen auch ohne Antrag bereits im Ermittlungsverfahren."}},
       {"@type":"Question","name":"Kann ich meinen Verteidiger selbst vorschlagen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Innerhalb einer Frist benannter Verteidiger ist zu bestellen, sofern kein wichtiger Grund entgegensteht; sonst Auswahl aus dem BRAK‑Verzeichnis."}}
     ]
-  }
-  </script>
+  }</script>
 
   <script src="script.js" defer></script>
 </body>

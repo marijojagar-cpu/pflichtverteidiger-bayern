@@ -6,6 +6,8 @@
   --muted:#4B2942;
   --alt:#f5f7ef;
   --radius:12px;
+  --cta-height:64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
@@ -37,17 +39,42 @@ img{max-width:100%;display:block}
 .link{color:var(--muted);text-decoration:underline}
 .steps{padding-left:20px}
 .faq details{border:1px solid #eee;border-radius:10px;padding:14px;background:#fff;margin-bottom:12px}
-.contact .form{display:grid;gap:12px;max-width:640px}
-.form input,.form textarea{padding:12px;border:1px solid #ddd;border-radius:10px;font:inherit}
-.form button{width:fit-content}
-.site-footer{background:#181121;color:#fff}
-.site-footer .container{padding:28px 0}
-.site-footer nav{display:flex;gap:18px;justify-content:center;margin-bottom:8px}
-.site-footer a{color:var(--primary);text-decoration:underline}
+.contact-buttons{display:flex;gap:18px;flex-wrap:wrap;margin:24px 0 0 0}
+.contact-buttons .btn{display:flex;align-items:center;font-size:1.1rem;min-width:220px;justify-content:center}
+.btn.whatsapp{border:1px solid #25D366;color:#0e5a2b;background:#fff}
+.btn.whatsapp:hover{background:#25D366;color:#fff;border-color:#25D366}
 
+/* ========== Sticky Footer-Leiste (Mobil) ========== */
+.sticky-cta{
+  position:fixed;left:0;right:0;bottom:0;
+  height:calc(var(--cta-height) + var(--safe-bottom));
+  padding-bottom:var(--safe-bottom);
+  background:#ffffffcc;
+  backdrop-filter:saturate(180%) blur(8px);
+  border-top:1px solid #eaeaea;
+  box-shadow:0 -4px 12px rgba(0,0,0,.06);
+  display:none;
+  z-index:1000;
+}
+.sticky-cta .cta-item{
+  flex:1 1 0;min-width:0;height:var(--cta-height);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  text-decoration:none;color:var(--fg);font-weight:700;
+  border-right:1px solid #ececec;
+}
+.sticky-cta .cta-item:last-child{border-right:0}
+.sticky-cta .cta-item.whatsapp{color:#0e5a2b}
+.sticky-cta .cta-item.whatsapp svg{color:#25D366}
+.sticky-cta .cta-item:active{background:#f7f9f0}
+.sticky-cta .cta-item.whatsapp:active{background:#eafaf1}
+.sticky-cta .cta-item:focus-visible{
+  outline:3px solid color-mix(in srgb, var(--primary) 45%, transparent);
+  outline-offset:2px;border-radius:6px;
+}
 @media (max-width: 900px){
-  .menu-toggle{display:inline-block}
-  .nav{display:none;flex-direction:column;position:absolute;right:4vw;top:62px;background:#fff;border:1px solid #eee;border-radius:10px;padding:10px}
-  .nav.show{display:flex}
-  .grid3{grid-template-columns:1fr}
+  .sticky-cta{display:flex}
+  body{padding-bottom:calc(var(--cta-height) + var(--safe-bottom))}
+}
+@media print, (min-width: 901px){
+  .sticky-cta{display:none !important}
 }
