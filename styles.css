@@ -17,17 +17,27 @@ img{max-width:100%;display:block}
 .container{width:min(1120px,92vw);margin:0 auto}
 .skip-link{position:absolute;left:-999px}
 .skip-link:focus{left:8px;top:8px;background:#000;color:#fff;padding:6px 10px;border-radius:6px}
+
+/* === HEADER (Flex, minimaler Fix) === */
 .site-header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:20}
-.header-bar{display:flex;align-items:center;gap:12px}
-.brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit;font-weight:700}
-.nav{list-style:none;display:flex;gap:12px;margin-left:auto;padding:0}
+.header-bar{display:flex;align-items:center;gap:12px;padding:12px 0}
+.brand{display:flex;gap:10px;align-items:center;text-decoration:none;color:inherit;font-weight:700;min-width:0}
+.brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav{display:flex;gap:12px;margin:0;padding:0;list-style:none;margin-left:auto}
 .nav a{color:var(--fg);text-decoration:none;padding:8px 10px;border-radius:10px;white-space:nowrap}
 .nav a:hover{background:var(--primary);color:var(--fg)}
 .menu-toggle{display:none}
+@media (max-width:1100px){
+  .menu-toggle{display:inline-block}
+  .nav{display:none}
+  .nav.show{
+    display:flex;flex-direction:column;position:absolute;right:4vw;top:62px;background:#fff;border:1px solid #eee;border-radius:10px;padding:10px;gap:8px;z-index:30
+  }
+}
 
-/* Hero mit VERTIKALEM Verlauf (oben -> unten) */
+/* === HERO (zurück zum ursprünglichen Verlauf) === */
 .hero{
-  background: linear-gradient(180deg, #BED600 0%, #eaf3b0 100%);
+  background: linear-gradient(180deg, #f8fbe8 0%, #ffffff 100%);
   padding:80px 0 48px 0;
   text-align:center;
 }
@@ -35,11 +45,13 @@ img{max-width:100%;display:block}
 .hero h1{margin:0;font-size:clamp(28px,4vw,44px)}
 .lead{color:var(--muted);font-size:clamp(16px,2.2vw,20px)}
 .hero-ctas{display:flex;gap:12px}
-
+/* Buttons auf grün/heller Fläche kontrastieren ausreichend */
 .btn{display:inline-block;padding:12px 22px;border-radius:8px;text-decoration:none;border:1px solid transparent;font-weight:600}
-.btn.primary{background:#181121;color:#fff}
-.btn.primary:hover{background:#000;color:#fff}
+.btn.primary{background:var(--primary);color:var(--fg)}
+.btn.primary:hover{background:var(--primary-dark);color:#fff}
 .btn.ghost{border-color:#cbd5a7;color:var(--fg)}
+
+/* === CONTENT === */
 .section{padding:56px 0}
 .section.alt{background:var(--alt)}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -47,75 +59,34 @@ img{max-width:100%;display:block}
 .link{color:var(--muted);text-decoration:underline}
 .steps{padding-left:20px}
 .faq details{border:1px solid #eee;border-radius:10px;padding:14px;background:#fff;margin-bottom:12px}
+
+/* Kontakt-Buttons */
 .contact-buttons{display:flex;gap:18px;flex-wrap:wrap;margin:24px 0 0 0}
 .contact-buttons .btn{display:flex;align-items:center;font-size:1.1rem;min-width:220px;justify-content:center}
 .btn.whatsapp{border:1px solid #25D366;color:#0e5a2b;background:#fff}
 .btn.whatsapp:hover{background:#25D366;color:#fff;border-color:#25D366}
 
 /* Sticky Footer-Leiste (Mobil) */
-.sticky-cta{
-  position:fixed;left:0;right:0;bottom:0;
-  height:calc(var(--cta-height) + var(--safe-bottom));
-  padding-bottom:var(--safe-bottom);
-  background:#ffffffcc;
-  backdrop-filter:saturate(180%) blur(8px);
-  border-top:1px solid #eaeaea;
-  box-shadow:0 -4px 12px rgba(0,0,0,.06);
-  display:none;
-  z-index:1000;
-}
-.sticky-cta .cta-item{
-  flex:1 1 0;min-width:0;height:var(--cta-height);
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  text-decoration:none;color:var(--fg);font-weight:700;
-  border-right:1px solid #ececec;
-}
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;height:calc(var(--cta-height) + var(--safe-bottom));padding-bottom:var(--safe-bottom);background:#ffffffcc;backdrop-filter:saturate(180%) blur(8px);border-top:1px solid #eaeaea;box-shadow:0 -4px 12px rgba(0,0,0,.06);display:none;z-index:1000}
+.sticky-cta .cta-item{flex:1 1 0;min-width:0;height:var(--cta-height);display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;color:var(--fg);font-weight:700;border-right:1px solid #ececec}
 .sticky-cta .cta-item:last-child{border-right:0}
 .sticky-cta .cta-item.whatsapp{color:#0e5a2b}
 .sticky-cta .cta-item.whatsapp svg{color:#25D366}
 .sticky-cta .cta-item:active{background:#f7f9f0}
 .sticky-cta .cta-item.whatsapp:active{background:#eafaf1}
-.sticky-cta .cta-item:focus-visible{
-  outline:3px solid color-mix(in srgb, var(--primary) 45%, transparent);
-  outline-offset:2px;border-radius:6px;
-}
-@media (max-width: 900px){
+.sticky-cta .cta-item:focus-visible{outline:3px solid color-mix(in srgb, var(--primary) 45%, transparent);outline-offset:2px;border-radius:6px}
+
+/* === RESPONSIVE === */
+@media (max-width:900px){
   .sticky-cta{display:flex}
   body{padding-bottom:calc(var(--cta-height) + var(--safe-bottom))}
+  .grid3{grid-template-columns:1fr;gap:16px}
 }
-@media print, (min-width: 901px){
-  .sticky-cta{display:none !important}
-}
-
-/* Mobile Optimierungen */
-@media (max-width: 700px){
+@media (max-width:700px){
   .contact-buttons{flex-direction:column;gap:12px;align-items:stretch}
   .contact-buttons .btn{min-width:0;width:100%;justify-content:center;font-size:1.08rem;margin:0}
   .hero{padding:40px 0 24px 0}
   .hero-ctas .btn{padding:12px 18px;font-size:1rem}
   .card{font-size:1.08rem;padding:16px}
+  .contact.section{margin-bottom:80px}
 }
-@media (max-width: 900px){
-  .grid3{grid-template-columns:1fr;gap:16px}
-}
-
-/* Menü-Toggle früher einblenden */
-@media (max-width: 1100px){
-  .menu-toggle{display:inline-block}
-  .nav{display:none}
-  .nav.show{
-    display:flex;
-    position:absolute;
-    right:4vw;
-    top:62px;
-    flex-direction:column;
-    background:#fff;
-    border:1px solid #eee;
-    border-radius:10px;
-    padding:10px;
-    gap:8px;
-    z-index:30;
-  }
-}
-.brand{min-width:0}
-.brand span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
