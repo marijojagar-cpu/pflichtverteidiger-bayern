@@ -40,6 +40,7 @@ img{max-width:100%;display:block}
 .portrait-container{display:flex;justify-content:center;align-items:center}
 .portrait-img{max-width:320px;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 24px rgba(34,34,34,.08);background:#fff;margin:0 auto}
 
+
 /* Content Sektionen */
 .section{padding:56px 0}
 .section.alt{background:var(--alt)}
@@ -83,4 +84,59 @@ img{max-width:100%;display:block}
   .contact-buttons .btn{width:100%}
   .hero{padding:40px 0 24px 0}
   .portrait-img{max-width:90vw}
+}
+.portrait-reviews-section {
+  padding: 32px 0 0 0;
+  background: none;
+}
+.portrait-reviews-flex {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.portrait-col {
+  flex: 0 0 320px;
+  display: flex;
+  justify-content: center;
+}
+.portrait-img {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(34,34,34,0.08);
+  background: #fff;
+  margin: 0 auto;
+}
+.reviews-col {
+  flex: 1 1 320px;
+  min-width: 280px;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reviews-title {
+  font-size: 1.25rem;
+  color: var(--fg);
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+/* Mobil: untereinander statt nebeneinander */
+@media (max-width: 900px) {
+  .portrait-reviews-flex {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+  .reviews-col, .portrait-col {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .portrait-img {
+    max-width: 90vw;
+  }
 }
