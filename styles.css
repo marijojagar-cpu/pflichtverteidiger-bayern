@@ -17,16 +17,12 @@ img{max-width:100%;display:block}
 .skip-link{position:absolute;left:-999px}
 .skip-link:focus{left:8px;top:8px;background:#000;color:#fff;padding:6px 10px;border-radius:6px}
 
-/* Header: Brand links, nur "Kontakt" rechts – immer sichtbar */
+/* Header: Brand zentriert */
 .site-header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:20}
-.header-bar{display:flex;align-items:center;justify-content:left;padding:12px 0}
-.header-bar { display:flex; align-items:center; justify-content:center; }
+.header-bar{display:flex;align-items:center;justify-content:center;padding:12px 0}
 .brand{text-decoration:none;color:inherit;font-weight:700;font-size:1.2rem;letter-spacing:.01em}
-.nav{list-style:none;display:flex;gap:12px;margin:0;padding:0}
-.nav a{color:var(--fg);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
-.nav a:hover{background:var(--primary);color:var(--fg)}
 
-/* Hero – ursprünglicher vertikaler Verlauf */
+/* Hero – vertikaler Verlauf (zartes Grün -> Weiß) */
 .hero{background:linear-gradient(180deg,#f8fbe8 0%,#ffffff 100%);padding:80px 0 48px 0;text-align:center}
 .hero-inner{display:grid;gap:14px;justify-items:center}
 .hero h1{margin:0;font-size:clamp(28px,4vw,44px)}
@@ -39,11 +35,18 @@ img{max-width:100%;display:block}
 .btn.primary:hover{background:var(--primary-dark);color:#fff}
 .btn.ghost{border-color:#cbd5a7;color:var(--fg)}
 
-/* Content */
+/* Portrait Foto 2 */
+.portrait-section{background:none;padding:32px 0 0 0;text-align:center}
+.portrait-container{display:flex;justify-content:center;align-items:center}
+.portrait-img{max-width:320px;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 24px rgba(34,34,34,.08);background:#fff;margin:0 auto}
+
+/* Content Sektionen */
 .section{padding:56px 0}
 .section.alt{background:var(--alt)}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.steps{padding-left:20px}
+.faq details{border:1px solid #eee;border-radius:10px;padding:14px;background:#fff;margin-bottom:12px}
 
 /* Kontakt-Bereich */
 .contact-buttons{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px}
@@ -79,4 +82,5 @@ img{max-width:100%;display:block}
   .contact-buttons{flex-direction:column}
   .contact-buttons .btn{width:100%}
   .hero{padding:40px 0 24px 0}
+  .portrait-img{max-width:90vw}
 }

@@ -1,31 +1,29 @@
+Kanzlei Schwert & Schild – Startseite (komplettes Paket)
+===========================================================
 
-Header-Fix – Pflichtverteidiger Bayern (HL-Stil)
-===============================================
+Enthalten:
+- index.html  → neue Startseite (BRAO/BORA-konform formuliert, ohne unzulässige Superlative)
+- styles.css  → bestehendes Farbschema (HL‑Grün), vertikaler Verlauf im Hero, Mobile‑Sticky‑Leiste
+- /pages/impressum.html & /pages/datenschutz.html  → rechtliche Seiten (Platzhalter, bitte prüfen/ergänzen)
+- /assets/logo.svg  → einfaches Favicon/Logo (optional)
+- robots.txt & sitemap.xml
 
-Was wurde geändert?
-- Header von Flex auf **CSS Grid** umgestellt (Brand | freier Raum | Nav/Toggle) für bessere Balance.
-- Navigation rechtsbündig, kompaktere Abstände, längere Labels ohne Umbruch.
-- **Früheres Breakpoint (≤1100px)**: Vollmenü wird ausgeblendet, **Menü-Button** eingeblendet.
-- Mobile Flyout-Nav bleibt per `.nav.show` steuerbar (dein vorhandenes JS für das Toggle funktioniert weiter).
-- Hero bleibt **vollflächig grün**, alle bisherigen Mobile-Fixes (Sticky-CTA, einspaltige Cards/Buttons) sind enthalten.
+Portrait-Foto
+-------------
+- Bitte die Bilddatei **High_IMG_2375.jpg** in das **Root** der Website legen (gleiches Verzeichnis wie index.html).
+  Der <img>-Tag in index.html verweist auf diesen Dateinamen.
 
-Einspielen
-----------
-1) **styles.css** in deinem Repo im Root **ersetzen** (Upload → Commit).
-2) 1–2 Minuten warten (GitHub Pages Build), Seite hart neu laden.
+Einspielen (GitHub Pages)
+-------------------------
+1) ZIP entpacken → sämtliche Dateien ins Repo kopieren (bestehende überschreiben).
+2) Commit & Push → 1–2 Minuten warten (Pages Build).
+3) Seite hart neu laden (Strg+F5 / Cmd+Shift+R). Mobil ggf. in Privatfenster prüfen.
 
-Optional: Kürzeres Mobile-Label
--------------------------------
-Wenn du den langen Menüpunkt „Pflichtverteidigung“ auf sehr kleinen Screens verkürzen willst, ersetze im HTML den Link-Inhalt durch:
+Hinweise
+--------
+- Die Texte sind sachlich gehalten (Pflichtverteidigung §§ 140–142 StPO), ohne Begriffe wie „Spezialist/Experte“.
+- Einzugsgebiete sind genannt: München, Augsburg, Ingolstadt, Nürnberg, Regensburg und bayernweit.
+- WhatsApp-Hinweis aufgenommen (keine sensiblen Daten).
+- Structured Data (LegalService & FAQPage) ist in index.html enthalten.
 
-  <span class="label-full">Pflichtverteidigung</span>
-  <span class="label-short">Pflicht</span>
-
-und ergänze in CSS (falls du nicht das Beispiel nutzt):
-
-  .label-short{display:none}
-  @media (max-width:420px){ .label-full{display:none} .label-short{display:inline} }
-
-Hinweis
-------
-Du musst **nur styles.css** austauschen. Die beiliegende **index.html** ist ein **Beispiel**.
+Stand: 2025
