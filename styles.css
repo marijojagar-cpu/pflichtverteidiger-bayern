@@ -46,7 +46,8 @@ img{max-width:100%;display:block}
 .profile-info-row {
   display: flex;
   gap: 30px; /* Abstand zwischen Foto und Info */
-  align-items: flex-start;
+  /* GEÄNDERT: align-items von flex-start zu stretch für gleiche Höhe */
+  align-items: stretch; 
   /* Begrenzt die maximale Breite des Profil-Blocks und zentriert ihn */
   max-width: 800px; 
   margin: 0 auto 32px auto; /* 32px Abstand nach unten zu den Reviews */
@@ -97,7 +98,9 @@ img{max-width:100%;display:block}
 .section{padding:56px 0}
 .section.alt{background:var(--alt)}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+/* GEÄNDERT: height: 100% zur card-Klasse hinzugefügt */
+.card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.03);height:100%} 
+
 .steps{padding-left:20px}
 .faq details{border:1px solid #eee;border-radius:10px;padding:14px;background:#fff;margin-bottom:12px}
 
@@ -131,22 +134,7 @@ img{max-width:100%;display:block}
   .sticky-cta{display:flex}
   body{padding-bottom:calc(var(--cta-height) + var(--safe-bottom))}
 
-  /* Mobile Ansicht: alles vertikal stapeln */
-  .portrait-reviews-flex {
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
-  }
-  .portrait-col, .reviews-col {
-    max-width: 100%;
-    flex: 1 1 100%;
-    /* Breite begrenzen, damit Bild/Boxen nicht zu groß werden */
-    max-width: 420px; 
-    padding: 0 15px;
-  }
-  .portrait-img {
-    max-width: 90vw;
-  }
+  /* Alte fehlerhafte Regeln entfernt */
 }
 @media (max-width:700px){
   .contact-buttons{flex-direction:column}
