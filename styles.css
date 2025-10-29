@@ -39,6 +39,34 @@ img{max-width:100%;display:block}
 .portrait-section{background:none;padding:32px 0 0 0;text-align:center}
 .portrait-container{display:flex;justify-content:center;align-items:center}
 .portrait-img{max-width:320px;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 24px rgba(34,34,34,.08);background:#fff;margin:0 auto}
+/* Zusätzliches CSS für die Portrait-Sektion */
+.portrait-col {
+  /* Ermöglicht, dass die Anwalt-Info-Box unter dem Bild sitzt */
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+  gap: 20px; /* Abstand zwischen Bild und Text-Box */
+  flex: 0 0 320px;
+}
+.anwalt-info-box {
+    width: 100%; /* Die Box nimmt die volle Breite der Spalte ein */
+    text-align: left;
+    margin-top: 10px; /* Leichter Abstand nach unten, wenn mobil */
+}
+.anwalt-info-box h3, .anwalt-info-box h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.anwalt-info-box ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+@media (max-width: 900px) {
+  .portrait-col {
+    max-width: 90vw;
+  }
+}
 
 
 /* Content Sektionen */
