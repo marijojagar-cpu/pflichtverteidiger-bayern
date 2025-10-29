@@ -35,80 +35,70 @@ img{max-width:100%;display:block}
 .btn.primary:hover{background:var(--primary-dark);color:#fff}
 .btn.ghost{border-color:#cbd5a7;color:var(--fg)}
 
-/* --- PORTRAIT & REVIEWS SEKTION (Desktop Layout) --- */
+/* --- NEUE SEKTION: ZENTRIERTES ANKER-PROFIL (Desktop Layout) --- */
 
-.portrait-reviews-section {
+.profile-section {
   padding: 32px 0 0 0;
   background: none;
 }
-.portrait-reviews-flex {
+
+/* WICHTIG: Flex-Container für die 3 Spalten (Bild, Info, Reviews) */
+.profile-flex-wrapper {
   display: flex;
-  gap: 40px;
-  align-items: flex-start; /* Elemente oben ausrichten */
+  gap: 30px; /* Abstand zwischen den Spalten */
+  align-items: flex-start;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Erlaubt das Stapeln auf Mobilgeräten */
 }
 
-/* 1. Spalte: Portrait-Col (Foto + Infos + Reviews) */
-.portrait-col {
-  /* Setzt eine klare, maximale Breite für den gesamten Container und erlaubt ihm zu wachsen */
-  flex: 1 1 700px; 
-  max-width: 750px; 
-  
-  /* WICHTIG: Stapelt den inneren Wrapper und die Reviews vertikal */
-  display: flex;
-  flex-direction: column; 
-  gap: 24px; /* Abstand zwischen dem Foto-Block und dem Reviews Widget */
+/* 1. Spalte: Portrait */
+.profile-portrait {
+  flex: 0 0 300px; /* Feste Breite für das Bild */
+  max-width: 100%;
 }
-
-/* WICHTIG: Wrapper für das Foto/Info-Paar (Bild links, Text rechts in der linken Spalte) */
-.portrait-info-wrapper {
-    /* Stellt sicher, dass das Foto und die Infos nebeneinander bleiben */
-    display: flex; 
-    gap: 30px;
-    max-width: 100%; 
-}
-
-/* 2. Spalte: Reviews-Col (Ist nun leer - muss daher klein sein oder entfernt werden) */
-.reviews-col {
-  /* Setzt eine feste, minimale Breite, um als Spacer zu dienen, aber lässt den Hauptinhalt dominieren */
-  flex: 0 0 100px; 
-  min-width: 50px;
-  max-width: 200px; /* Reduziert, damit die linke Spalte mehr Platz hat */
-  /* Da die Spalte jetzt leer ist, können wir sie auch komplett ausblenden, um das Flex-Verhalten zu vereinfachen, aber wir lassen sie erstmal klein. */
-}
-
-/* Stil für das Bild im Wrapper (wird beibehalten) */
-.portrait-info-wrapper .portrait-img {
-    flex-shrink: 0; 
-    max-width: 300px;
-    width: 100%; 
+.profile-img {
+    width: 100%;
     height: auto;
-    border-radius: 12px;
+    border-radius: var(--radius);
     box-shadow: 0 4px 24px rgba(34,34,34,0.08);
 }
 
-/* --- Korrektur für Mobile (unter 900px) --- */
-@media (max-width: 900px) {
-  /* Hauptspalten werden vertikal gestapelt */
-  .portrait-reviews-flex {
+/* 2. Spalte: Info-Block (nimmt flexiblen Raum ein) */
+.profile-info {
+  flex: 1 1 350px; /* Nimmt den meisten Platz ein, flexibel */
+  min-width: 300px;
+}
+/* ... (Die bestehenden Stile für .card und .anwalt-info-box können entfallen, da wir .profile-info verwenden) ... */
+
+
+/* 3. Spalte: Reviews Widget (kleinere feste Breite) */
+.profile-reviews {
+  /* Feste, kleinere Breite, um das Widget sauber zu halten */
+  flex: 0 0 300px; 
+  min-width: 280px;
+  max-width: 100%;
+}
+
+
+/* --- Responsive Anpassungen (Mobile Ansicht) --- */
+@media (max-width: 1100px) {
+  /* Bei Verkleinerung (z.B. große Tablets) stapeln wir die Reviews unter Bild/Info */
+  .profile-flex-wrapper {
+      /* Bild und Info-Block bleiben nebeneinander, Reviews rutschen nach unten */
+      justify-content: space-around; 
+  }
+}
+
+@media (max-width: 768px) {
+  /* Bei mobiler Ansicht werden alle 3 Blöcke untereinander gestapelt */
+  .profile-flex-wrapper {
     flex-direction: column;
-    gap: 24px;
     align-items: center;
+    gap: 30px;
   }
-  
-  /* Linke und rechte Spalte nehmen die volle Breite ein */
-  .portrait-col, .reviews-col {
-    max-width: 100%;
+  .profile-portrait, .profile-info, .profile-reviews {
     flex: 1 1 100%;
-    padding: 0 15px; /* Fügt Padding für saubere Ränder hinzu */
-  }
-  
-  /* Der innere Wrapper (Foto/Info-Block) wird vertikal für Mobile */
-  .portrait-info-wrapper {
-    flex-direction: column;
-    max-width: 400px; /* Begrenzt die Breite für eine bessere Lesbarkeit */
-    align-items: center; 
+    max-width: 450px; /* Begrenzt die Breite auf Mobilgeräten */
   }
 }
 
