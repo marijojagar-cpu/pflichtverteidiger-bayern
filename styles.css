@@ -35,38 +35,72 @@ img{max-width:100%;display:block}
 .btn.primary:hover{background:var(--primary-dark);color:#fff}
 .btn.ghost{border-color:#cbd5a7;color:var(--fg)}
 
-/* Portrait Foto 2 */
-.portrait-section{background:none;padding:32px 0 0 0;text-align:center}
-.portrait-container{display:flex;justify-content:center;align-items:center}
-.portrait-img{max-width:320px;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 24px rgba(34,34,34,.08);background:#fff;margin:0 auto}
-/* Zusätzliches CSS für die Portrait-Sektion */
-.portrait-col {
-  /* Ermöglicht, dass die Anwalt-Info-Box unter dem Bild sitzt */
-  display: flex; 
-  flex-direction: column;
-  align-items: center; 
-  gap: 20px; /* Abstand zwischen Bild und Text-Box */
-  flex: 0 0 320px;
+/* --- PORTRAIT & REVIEWS SEKTION --- */
+
+.portrait-reviews-section {
+  padding: 32px 0 0 0;
+  background: none;
 }
+.portrait-reviews-flex {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Die Spalte, die das Bild und die Anwaltsinfos enthält */
+.portrait-col {
+  /* Erlaubt der Spalte, mehr Platz einzunehmen */
+  flex: 1 1 550px; 
+  display: flex;
+  justify-content: center;
+}
+
+/* WICHTIG: Der neue Wrapper für die Desktop-Ansicht (Bild links, Text rechts) */
+.portrait-info-wrapper {
+    display: flex; 
+    gap: 30px;
+    /* max-width verhindert, dass die Elemente zu weit auseinandergezogen werden */
+    max-width: 700px; 
+}
+
+/* Stil für das Bild im Wrapper */
+.portrait-info-wrapper img {
+    flex-shrink: 0; 
+    max-width: 300px; /* Definierte Größe für das Bild */
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(34,34,34,0.08);
+}
+
+/* Stil für die Anwalts-Info-Box */
 .anwalt-info-box {
-    width: 100%; /* Die Box nimmt die volle Breite der Spalte ein */
+    flex-grow: 1; 
     text-align: left;
-    margin-top: 10px; /* Leichter Abstand nach unten, wenn mobil */
 }
 .anwalt-info-box h3, .anwalt-info-box h4 {
     margin-top: 0;
     margin-bottom: 10px;
 }
 .anwalt-info-box ul {
-    margin: 0;
+    margin: 0 0 15px 0;
     padding-left: 20px;
     list-style-type: disc;
 }
-@media (max-width: 900px) {
-  .portrait-col {
-    max-width: 90vw;
-  }
+
+
+/* Bewertungen-Spalte */
+.reviews-col {
+  flex: 0 0 320px; 
+  min-width: 280px;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+/* --- ENDE PORTRAIT & REVIEWS SEKTION --- */
 
 
 /* Content Sektionen */
@@ -113,58 +147,35 @@ img{max-width:100%;display:block}
   .hero{padding:40px 0 24px 0}
   .portrait-img{max-width:90vw}
 }
-.portrait-reviews-section {
-  padding: 32px 0 0 0;
-  background: none;
-}
-.portrait-reviews-flex {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.portrait-col {
-  flex: 0 0 320px;
-  display: flex;
-  justify-content: center;
-}
-.portrait-img {
-  max-width: 320px;
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(34,34,34,0.08);
-  background: #fff;
-  margin: 0 auto;
-}
-.reviews-col {
-  flex: 1 1 320px;
-  min-width: 280px;
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.reviews-title {
-  font-size: 1.25rem;
-  color: var(--fg);
-  margin-bottom: 18px;
-  text-align: center;
-}
 
-/* Mobil: untereinander statt nebeneinander */
+
+/* Responsive Anpassungen (Mobile Ansicht) */
 @media (max-width: 900px) {
+  /* Die Hauptspalten werden wieder vertikal gestapelt */
   .portrait-reviews-flex {
     flex-direction: column;
     gap: 24px;
     align-items: center;
   }
-  .reviews-col, .portrait-col {
+  .portrait-col {
+    max-width: 100%;
+    flex: 1 1 100%;
+    justify-content: center;
+  }
+  .reviews-col {
     max-width: 100%;
     flex: 1 1 100%;
   }
-  .portrait-img {
+  
+  /* WICHTIG: Der innere Wrapper wird vertikal für Mobile */
+  .portrait-info-wrapper {
+    flex-direction: column;
+    max-width: 400px; /* Begrenzt die Breite des Inhalts auf Mobilgeräten */
+    align-items: center; 
+  }
+
+  .portrait-info-wrapper img {
     max-width: 90vw;
+    margin: 0;
   }
 }
