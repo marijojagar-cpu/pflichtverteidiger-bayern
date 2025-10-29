@@ -35,7 +35,7 @@ img{max-width:100%;display:block}
 .btn.primary:hover{background:var(--primary-dark);color:#fff}
 .btn.ghost{border-color:#cbd5a7;color:var(--fg)}
 
-/* --- PORTRAIT & REVIEWS SEKTION --- */
+/* --- PORTRAIT & REVIEWS SEKTION (Bild & Infos/Reviews NEBENEINANDER) --- */
 
 .portrait-reviews-section {
   padding: 32px 0 0 0;
@@ -44,40 +44,43 @@ img{max-width:100%;display:block}
 .portrait-reviews-flex {
   display: flex;
   gap: 40px;
-  align-items: flex-start;
+  /* Elemente oben ausrichten, damit die Bewertungen bei hohem Bild oben starten */
+  align-items: flex-start; 
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* Die Spalte, die das Bild und die Anwaltsinfos enthält */
+/* 1. Spalte: Nur das Bild */
 .portrait-col {
-  /* Erlaubt der Spalte, mehr Platz einzunehmen */
-  flex: 1 1 550px; 
+  /* Feste Breite für das Bild, passt gut zur Hochformat-Breite */
+  flex: 0 0 320px; 
+  max-width: 320px;
   display: flex;
   justify-content: center;
 }
-
-/* WICHTIG: Der neue Wrapper für die Desktop-Ansicht (Bild links, Text rechts) */
-.portrait-info-wrapper {
-    display: flex; 
-    gap: 30px;
-    /* max-width verhindert, dass die Elemente zu weit auseinandergezogen werden */
-    max-width: 700px; 
+.portrait-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(34,34,34,0.08);
+  background: #fff;
 }
 
-/* Stil für das Bild im Wrapper */
-.portrait-info-wrapper img {
-    flex-shrink: 0; 
-    max-width: 300px; /* Definierte Größe für das Bild */
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(34,34,34,0.08);
+/* 2. Spalte: Anwaltsinfos + Bewertungen */
+.reviews-col {
+  /* Nimmt den restlichen Platz ein und hat eine sinnvolle Mindestbreite */
+  flex: 1 1 400px; 
+  min-width: 280px;
+  max-width: 600px; /* Optional, um die Spalte nicht zu breit werden zu lassen */
+  display: flex;
+  flex-direction: column;
+  gap: 24px; /* Abstand zwischen Info-Box und Elfsight-Widget */
 }
 
-/* Stil für die Anwalts-Info-Box */
+/* Stil für die Anwalts-Info-Box (jetzt in .reviews-col) */
 .anwalt-info-box {
-    flex-grow: 1; 
     text-align: left;
+    /* Da es nun ein Kind von .reviews-col ist, ist kein flex-grow mehr nötig */
 }
 .anwalt-info-box h3, .anwalt-info-box h4 {
     margin-top: 0;
@@ -87,17 +90,6 @@ img{max-width:100%;display:block}
     margin: 0 0 15px 0;
     padding-left: 20px;
     list-style-type: disc;
-}
-
-
-/* Bewertungen-Spalte */
-.reviews-col {
-  flex: 0 0 320px; 
-  min-width: 280px;
-  max-width: 420px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /* --- ENDE PORTRAIT & REVIEWS SEKTION --- */
@@ -140,42 +132,26 @@ img{max-width:100%;display:block}
   .grid3{grid-template-columns:1fr}
   .sticky-cta{display:flex}
   body{padding-bottom:calc(var(--cta-height) + var(--safe-bottom))}
-}
-@media (max-width:700px){
-  .contact-buttons{flex-direction:column}
-  .contact-buttons .btn{width:100%}
-  .hero{padding:40px 0 24px 0}
-  /* Die alte, ungenutzte .portrait-img Regel wurde hier entfernt */
-}
 
-
-/* Responsive Anpassungen (Mobile Ansicht) */
-@media (max-width: 900px) {
-  /* Die Hauptspalten werden wieder vertikal gestapelt */
+  /* Mobile Ansicht: alles vertikal stapeln */
   .portrait-reviews-flex {
     flex-direction: column;
     gap: 24px;
     align-items: center;
   }
-  .portrait-col {
+  .portrait-col, .reviews-col {
     max-width: 100%;
     flex: 1 1 100%;
-    justify-content: center;
+    /* Breite begrenzen, damit Bild/Boxen nicht zu groß werden */
+    max-width: 420px; 
+    padding: 0 15px;
   }
-  .reviews-col {
-    max-width: 100%;
-    flex: 1 1 100%;
-  }
-  
-  /* WICHTIG: Der innere Wrapper wird vertikal für Mobile */
-  .portrait-info-wrapper {
-    flex-direction: column;
-    max-width: 400px; /* Begrenzt die Breite des Inhalts auf Mobilgeräten */
-    align-items: center; 
-  }
-
-  .portrait-info-wrapper img {
+  .portrait-img {
     max-width: 90vw;
-    margin: 0;
   }
+}
+@media (max-width:700px){
+  .contact-buttons{flex-direction:column}
+  .contact-buttons .btn{width:100%}
+  .hero{padding:40px 0 24px 0}
 }
