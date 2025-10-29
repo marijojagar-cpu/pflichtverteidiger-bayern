@@ -145,7 +145,7 @@ img{max-width:100%;display:block}
   .contact-buttons{flex-direction:column}
   .contact-buttons .btn{width:100%}
   .hero{padding:40px 0 24px 0}
-  .portrait-img{max-width:90vw}
+  /* Die alte, ungenutzte .portrait-img Regel wurde hier entfernt */
 }
 
 
