@@ -35,7 +35,7 @@ img{max-width:100%;display:block}
 .btn.primary:hover{background:var(--primary-dark);color:#fff}
 .btn.ghost{border-color:#cbd5a7;color:var(--fg)}
 
-/* --- PORTRAIT & REVIEWS SEKTION (Bild & Infos/Reviews NEBENEINANDER) --- */
+/* --- PORTRAIT & REVIEWS SEKTION (Desktop Layout) --- */
 
 .portrait-reviews-section {
   padding: 32px 0 0 0;
@@ -44,55 +44,49 @@ img{max-width:100%;display:block}
 .portrait-reviews-flex {
   display: flex;
   gap: 40px;
-  /* Elemente oben ausrichten, damit die Bewertungen bei hohem Bild oben starten */
-  align-items: flex-start; 
+  align-items: flex-start; /* Elemente oben ausrichten */
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* 1. Spalte: Nur das Bild */
+/* 1. Spalte: Portrait-Col (JETZT BREITER, da es die Reviews enthält) */
 .portrait-col {
-  /* Feste Breite für das Bild, passt gut zur Hochformat-Breite */
-  flex: 0 0 320px; 
-  max-width: 320px;
+  /* Nimmt deutlich mehr Platz ein, da es Reviews enthält */
+  flex: 1 1 650px; 
+  max-width: 750px; 
   display: flex;
-  justify-content: center;
-}
-.portrait-img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(34,34,34,0.08);
-  background: #fff;
+  flex-direction: column; /* WICHTIG: Stapelt Info-Wrapper und Reviews vertikal */
+  gap: 24px; /* Abstand zwischen dem Foto-Block und dem Reviews Widget */
 }
 
-/* 2. Spalte: Anwaltsinfos + Bewertungen */
+/* 2. Spalte: Reviews-Col (Ist nun schmal und leer) */
 .reviews-col {
-  /* Nimmt den restlichen Platz ein und hat eine sinnvolle Mindestbreite */
-  flex: 1 1 400px; 
-  min-width: 280px;
-  max-width: 600px; /* Optional, um die Spalte nicht zu breit werden zu lassen */
+  /* Wird nur noch als optionaler Leerraum behandelt */
+  flex: 0 0 100px; /* Sehr schmal, da es leer ist */
+  min-width: 50px;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
-  gap: 24px; /* Abstand zwischen Info-Box und Elfsight-Widget */
+  align-items: center;
 }
 
-/* Stil für die Anwalts-Info-Box (jetzt in .reviews-col) */
-.anwalt-info-box {
-    text-align: left;
-    /* Da es nun ein Kind von .reviews-col ist, ist kein flex-grow mehr nötig */
-}
-.anwalt-info-box h3, .anwalt-info-box h4 {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-.anwalt-info-box ul {
-    margin: 0 0 15px 0;
-    padding-left: 20px;
-    list-style-type: disc;
+/* WICHTIG: Wrapper für das Foto/Info-Paar (Bild links, Text rechts in der linken Spalte) */
+.portrait-info-wrapper {
+    display: flex; 
+    gap: 30px;
+    max-width: 100%; 
 }
 
-/* --- ENDE PORTRAIT & REVIEWS SEKTION --- */
+.portrait-info-wrapper .portrait-img {
+    flex-shrink: 0; 
+    max-width: 300px; /* Behält die Größe des Bildes bei */
+    width: 100%; 
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(34,34,34,0.08);
+}
+
+/* (Die mobilen Media Queries sollten beibehalten werden, falls sie bereits korrekt sind) */
 
 
 /* Content Sektionen */
