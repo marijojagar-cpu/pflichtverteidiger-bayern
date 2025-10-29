@@ -35,71 +35,26 @@ img{max-width:100%;display:block}
 .btn.primary:hover{background:var(--primary-dark);color:#fff}
 .btn.ghost{border-color:#cbd5a7;color:var(--fg)}
 
-/* --- NEUE SEKTION: PROFILE MAIN SECTION (Ersetzt alte Portrait-Regeln) --- */
+/* --- PROFILE MAIN SECTION --- */
+.profile-main-section{padding:32px 0 0 0;background:none}
+.profile-info-row{display:flex;gap:30px;align-items:stretch;max-width:800px;margin:0 auto 32px auto}
+.profile-photo-col,.profile-info-col{flex:1 1 0;min-width:250px}
+.profile-img{width:100%;height:auto;border-radius:var(--radius);box-shadow:0 4px 24px rgba(34,34,34,0.08)}
 
-.profile-main-section {
-  padding: 32px 0 0 0;
-  background: none;
+/* Reviews unter dem Profil */
+.profile-reviews-row{max-width:400px;margin:0 auto;padding-bottom:32px}
+
+/* --- Responsive Mobile --- */
+@media (max-width:768px){
+  .profile-info-row{flex-direction:column;align-items:center;gap:20px;max-width:90vw}
+  .profile-photo-col,.profile-info-col{flex:1 1 100%;max-width:400px}
 }
-
-/* 1. ROW: FOTO UND INFO-BOX (Desktop: 50% / 50%) */
-.profile-info-row {
-  display: flex;
-  gap: 30px; /* Abstand zwischen Foto und Info */
-  /* GEÄNDERT: align-items von flex-start zu stretch für gleiche Höhe */
-  align-items: stretch; 
-  /* Begrenzt die maximale Breite des Profil-Blocks und zentriert ihn */
-  max-width: 800px; 
-  margin: 0 auto 32px auto; /* 32px Abstand nach unten zu den Reviews */
-}
-
-/* WICHTIG: Erzwingt FOTO und INFO-BOX auf 50%/50% */
-.profile-photo-col,
-.profile-info-col {
-  /* flex: 1 1 0; sorgt für exakte Gleichverteilung des verfügbaren Platzes (50/50) */
-  flex: 1 1 0; 
-  min-width: 250px; 
-}
-
-/* Stil für das Bild */
-.profile-img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 24px rgba(34,34,34,0.08);
-}
-
-/* 2. ROW: REVIEWS (Desktop: Zentriert) */
-.profile-reviews-row {
-    max-width: 400px; /* Begrenzt die Breite des Widgets */
-    margin: 0 auto; /* Zentriert das Widget horizontal */
-    padding-bottom: 32px; /* Abstand zum nächsten Inhalt */
-}
-
-/* --- Responsive Anpassungen für Mobile --- */
-@media (max-width: 768px) {
-  /* Auf Mobilgeräten werden die Spalten gestapelt */
-  .profile-info-row {
-    flex-direction: column;
-    align-items: center; /* Zentriert die gestapelten Elemente */
-    gap: 20px;
-    max-width: 90vw;
-  }
-  
-  .profile-photo-col,
-  .profile-info-col {
-    flex: 1 1 100%; /* Nehmen volle Breite ein */
-    max-width: 400px; /* Begrenzt die Breite für eine bessere Lesbarkeit */
-  }
-}
-
 
 /* Content Sektionen */
 .section{padding:56px 0}
 .section.alt{background:var(--alt)}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-/* GEÄNDERT: height: 100% zur card-Klasse hinzugefügt */
-.card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.03);height:100%} 
+.card{background:#fff;border:1px solid #eee;border-radius:var(--radius);padding:22px;box-shadow:0 2px 8px rgba(0,0,0,.03);height:100%}
 
 .steps{padding-left:20px}
 .faq details{border:1px solid #eee;border-radius:10px;padding:14px;background:#fff;margin-bottom:12px}
@@ -133,97 +88,32 @@ img{max-width:100%;display:block}
   .grid3{grid-template-columns:1fr}
   .sticky-cta{display:flex}
   body{padding-bottom:calc(var(--cta-height) + var(--safe-bottom))}
-
-  /* Alte fehlerhafte Regeln entfernt */
 }
 @media (max-width:700px){
   .contact-buttons{flex-direction:column}
   .contact-buttons .btn{width:100%}
   .hero{padding:40px 0 24px 0}
-} 
-/* --- Accessbility helper --- */
-.visually-hidden {
-  position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
-  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
 }
 
-/* Eyebrow (kleine Überschrift über H2) */
-.eyebrow {
-  letter-spacing:.06em; text-transform:uppercase; font-weight:700;
-  font-size:.78rem; color:var(--muted); margin:0 0 2px 0;
-}
+/* Accessibility helper */
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.eyebrow{letter-spacing:.06em;text-transform:uppercase;font-weight:700;font-size:.78rem;color:var(--muted);margin:0 0 2px 0}
+.profile-photo{margin:0}
+.profile-img{aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:var(--radius);box-shadow:0 4px 24px rgba(34,34,34,.08);width:100%;height:auto}
+.qual-list{list-style:none;padding:0;margin:14px 0 12px 0}
+.qual-list li{position:relative;padding-left:26px;margin:8px 0}
+.qual-list li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:color-mix(in srgb, var(--primary) 62%, #4f5d1e);box-shadow:0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent)}
+.badge-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--alt);border:1px solid #dfe7c6;color:var(--fg);font-weight:600;font-size:.85rem}
 
-/* Portrait: gleichmäßiges Verhältnis + sauberes Cropping */
-.profile-photo { margin:0; }
-.profile-img {
-  aspect-ratio: 4 / 5;            /* hält den Frame stabil -> weniger CLS */
-  object-fit: cover;
-  object-position: 50% 20%;
-  border-radius: var(--radius);
-  box-shadow: 0 4px 24px rgba(34,34,34,.08);
-  width: 100%;
-  height: auto;
+/* === Profile Desktop-Feintuning (kompakt + gleich hoch) === */
+:root{--profile-max:980px;--profile-gap:24px;--profile-photo-w:clamp(260px,28vw,340px)}
+.profile-info-row{max-width:var(--profile-max);gap:var(--profile-gap)}
+@media (min-width:900px){
+  .profile-photo-col{flex:0 0 var(--profile-photo-w);display:flex}
+  .profile-info-col{flex:1 1 auto;display:flex}
+  .profile-photo-col .card,.profile-info-col .card{height:100%;display:grid}
+  .profile-photo-col .profile-img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;aspect-ratio:auto}
 }
-
-/* Qualifikationsliste mit dezenten Bullets */
-.qual-list {
-  list-style: none; padding:0; margin:14px 0 12px 0;
-}
-.qual-list li {
-  position:relative; padding-left:26px; margin:8px 0;
-}
-.qual-list li::before {
-  content:""; position:absolute; left:0; top:9px;
-  width:10px; height:10px; border-radius:50%;
-  background: color-mix(in srgb, var(--primary) 62%, #4f5d1e);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
-}
-
-/* Badges */
-.badge-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
-.badge {
-  display:inline-block; padding:6px 10px; border-radius:999px;
-  background: var(--alt); border: 1px solid #dfe7c6; color: var(--fg);
-  font-weight:600; font-size:.85rem;
-}
-
-/* Reviews Widget */
-.reviews-widget { padding:18px; }
-.reviews-head {
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-  margin-bottom:8px;
-}
-.reviews-title { margin:0; font-size:1.1rem; }
-.rating-badge { display:flex; align-items:center; gap:8px; }
-.rating-badge .stars { color:#f59e0b; letter-spacing:2px; }
-.rating-badge .rating-text { color:var(--muted); font-weight:700; }
-
-.reviews-scroller {
-  display:grid; grid-auto-flow:column; gap:12px;
-  overflow-x:auto; padding:8px 4px 6px 4px;
-  scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
-}
-.reviews-scroller::-webkit-scrollbar { height:8px; }
-.reviews-scroller::-webkit-scrollbar-thumb { background:#d7dcc7; border-radius:8px; }
-.review {
-  scroll-snap-align:start;
-  min-width: 260px; max-width: 340px;
-  border:1px solid #eee; border-radius:10px; background:#fff;
-  padding:14px;
-}
-.review .stars { color:#f59e0b; font-size:.95rem; letter-spacing:2px; }
-.review p { margin:6px 0 8px 0; }
-.review .meta { color:var(--muted); font-size:.85rem; }
-
-.reviews-cta { margin-top:12px; display:flex; justify-content:flex-end; }
-
-/* Desktop-Verbesserungen */
-@media (min-width: 900px) {
-  .profile-info-col { padding-top:4px; }
-  .reviews-scroller {
-    grid-auto-flow:unset;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    overflow:visible;
-  }
-  .review { min-width:0; }
-}
+.profile-reviews-row{max-width:var(--profile-max);margin:0 auto;padding-top:8px}
+.profile-reviews-row .card{padding:0;border:0;box-shadow:none}
