@@ -141,3 +141,89 @@ img{max-width:100%;display:block}
   .contact-buttons .btn{width:100%}
   .hero{padding:40px 0 24px 0}
 } 
+/* --- Accessbility helper --- */
+.visually-hidden {
+  position:absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}
+
+/* Eyebrow (kleine Überschrift über H2) */
+.eyebrow {
+  letter-spacing:.06em; text-transform:uppercase; font-weight:700;
+  font-size:.78rem; color:var(--muted); margin:0 0 2px 0;
+}
+
+/* Portrait: gleichmäßiges Verhältnis + sauberes Cropping */
+.profile-photo { margin:0; }
+.profile-img {
+  aspect-ratio: 4 / 5;            /* hält den Frame stabil -> weniger CLS */
+  object-fit: cover;
+  object-position: 50% 20%;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 24px rgba(34,34,34,.08);
+  width: 100%;
+  height: auto;
+}
+
+/* Qualifikationsliste mit dezenten Bullets */
+.qual-list {
+  list-style: none; padding:0; margin:14px 0 12px 0;
+}
+.qual-list li {
+  position:relative; padding-left:26px; margin:8px 0;
+}
+.qual-list li::before {
+  content:""; position:absolute; left:0; top:9px;
+  width:10px; height:10px; border-radius:50%;
+  background: color-mix(in srgb, var(--primary) 62%, #4f5d1e);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+/* Badges */
+.badge-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+.badge {
+  display:inline-block; padding:6px 10px; border-radius:999px;
+  background: var(--alt); border: 1px solid #dfe7c6; color: var(--fg);
+  font-weight:600; font-size:.85rem;
+}
+
+/* Reviews Widget */
+.reviews-widget { padding:18px; }
+.reviews-head {
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  margin-bottom:8px;
+}
+.reviews-title { margin:0; font-size:1.1rem; }
+.rating-badge { display:flex; align-items:center; gap:8px; }
+.rating-badge .stars { color:#f59e0b; letter-spacing:2px; }
+.rating-badge .rating-text { color:var(--muted); font-weight:700; }
+
+.reviews-scroller {
+  display:grid; grid-auto-flow:column; gap:12px;
+  overflow-x:auto; padding:8px 4px 6px 4px;
+  scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+}
+.reviews-scroller::-webkit-scrollbar { height:8px; }
+.reviews-scroller::-webkit-scrollbar-thumb { background:#d7dcc7; border-radius:8px; }
+.review {
+  scroll-snap-align:start;
+  min-width: 260px; max-width: 340px;
+  border:1px solid #eee; border-radius:10px; background:#fff;
+  padding:14px;
+}
+.review .stars { color:#f59e0b; font-size:.95rem; letter-spacing:2px; }
+.review p { margin:6px 0 8px 0; }
+.review .meta { color:var(--muted); font-size:.85rem; }
+
+.reviews-cta { margin-top:12px; display:flex; justify-content:flex-end; }
+
+/* Desktop-Verbesserungen */
+@media (min-width: 900px) {
+  .profile-info-col { padding-top:4px; }
+  .reviews-scroller {
+    grid-auto-flow:unset;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow:visible;
+  }
+  .review { min-width:0; }
+}
