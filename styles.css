@@ -35,29 +35,28 @@ img{max-width:100%;display:block}
 .btn.primary:hover{background:var(--primary-dark);color:#fff}
 .btn.ghost{border-color:#cbd5a7;color:var(--fg)}
 
-/* --- NEUE SEKTION: PROFILE MAIN SECTION (Ersetzt alte Portrait-Regeln) --- */
+/* --- NEUE SEKTION: PROFILE MAIN SECTION (Optimiert) --- */
 
 .profile-main-section {
-  padding: 32px 0 0 0;
-  background: none;
+  /* Kein Padding oben, da Hero bereits einen Abschluss hat */
+  padding: 0 0 56px 0; 
+  background: var(--bg);
 }
 
 /* 1. ROW: FOTO UND INFO-BOX (Desktop: 50% / 50%) */
 .profile-info-row {
   display: flex;
-  gap: 30px; /* Abstand zwischen Foto und Info */
-  /* GEÄNDERT: align-items von flex-start zu stretch für gleiche Höhe */
-  align-items: stretch; 
-  /* Begrenzt die maximale Breite des Profil-Blocks und zentriert ihn */
-  max-width: 800px; 
-  margin: 0 auto 32px auto; /* 32px Abstand nach unten zu den Reviews */
+  gap: 30px; 
+  align-items: stretch; /* Streckt die Inhalte auf gleiche Höhe */
+  max-width: 860px; /* Leicht breiter gemacht, um die 50/50 besser zu zeigen */
+  margin: 0 auto 32px auto; 
+  padding-top: 56px; /* Abstand nach oben zur Hero-Sektion */
 }
 
-/* WICHTIG: Erzwingt FOTO und INFO-BOX auf 50%/50% */
+/* ZWEI SPALTEN: FOTO und INFO-BOX */
 .profile-photo-col,
 .profile-info-col {
-  /* flex: 1 1 0; sorgt für exakte Gleichverteilung des verfügbaren Platzes (50/50) */
-  flex: 1 1 0; 
+  flex: 1 1 0; /* 50%/50% Aufteilung */
   min-width: 250px; 
 }
 
@@ -69,11 +68,36 @@ img{max-width:100%;display:block}
   box-shadow: 0 4px 24px rgba(34,34,34,0.08);
 }
 
-/* 2. ROW: REVIEWS (Desktop: Zentriert) */
+/* 2. ROW: REVIEWS (Sicherstellen, dass das Widget zentriert ist) */
 .profile-reviews-row {
-    max-width: 400px; /* Begrenzt die Breite des Widgets */
+    max-width: 400px; /* Bleibt bei der Breite des Widgets */
     margin: 0 auto; /* Zentriert das Widget horizontal */
-    padding-bottom: 32px; /* Abstand zum nächsten Inhalt */
+    padding-top: 32px; /* Abstand zur Info-Row */
+}
+
+/* Styling für die Profil-Card */
+.profile-info-col .card {
+    /* Macht die Box optisch ansprechender als nur eine weiße Fläche */
+    padding: 30px; 
+    border: 2px solid var(--primary); /* HEBT DIE INFO-BOX HERVOR */
+    box-shadow: 0 6px 16px rgba(190, 214, 0, 0.2); /* Sanfter, farbiger Schatten */
+}
+
+/* --- Responsive Anpassungen für Mobile --- */
+@media (max-width: 768px) {
+  /* Auf Mobilgeräten werden die Spalten gestapelt */
+  .profile-info-row {
+    flex-direction: column;
+    align-items: center; 
+    gap: 20px;
+    padding-top: 32px; /* Weniger Abstand auf Mobile */
+  }
+  
+  .profile-photo-col,
+  .profile-info-col {
+    flex: 1 1 100%; 
+    max-width: 400px; 
+  }
 }
 
 /* --- Responsive Anpassungen für Mobile --- */
